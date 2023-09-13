@@ -1,0 +1,20 @@
+The Tower of Brahma puzzle, also known as the Tower of Hanoi, is a classic problem in mathematics and computer science. The puzzle consists of three rods and a set of 64 gold disks of different sizes, initially stacked in decreasing order of size on one of the rods. The objective is to move the entire stack to another rod, subject to the following rules:
+
+1. Only one disk can be moved at a time.
+2. A disk can only be placed on top of a larger disk or an empty rod.
+
+To solve this puzzle optimally, you can use a recursive algorithm. The minimum number of moves required to solve the Tower of Brahma with 64 disks is 2^64 - 1, which is an astronomically large number. If one move takes one second, the total time it would take to complete the puzzle and, according to the legend, end the Universe would be:
+
+Time = (2^64 - 1) seconds
+
+Let's calculate that:
+
+2^64 = 18,446,744,073,709,551,616
+So, (2^64 - 1) = 18,446,744,073,709,551,615 seconds
+
+To put this into perspective, this is an incredibly long time:
+
+- Approximately 584.5 billion years.
+- The current age of the Universe is estimated to be around 13.8 billion years.
+
+So, if you were to attempt to solve the Tower of Brahma puzzle with one move per second, it would take you far longer than the current age of the Universe to complete it. In other words, it's practically impossible to complete the puzzle within a human-relevant timeframe.
