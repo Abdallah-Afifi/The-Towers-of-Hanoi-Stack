@@ -1,74 +1,78 @@
 #include <iostream>
-#include "Stackt.h"
+#include "stackt.h"
 
-void towersOfHanoi(int n, Stackt<int>& source, Stackt<int>& target, Stackt<int>& aux) {
-    if (n == 1) {
-        int disk = source.top();
-        source.pop();
+using namespace std;
+
+// Function to implement the Towers of Hanoi
+void TowersOfHanoi(int N, Stackt<int>& source, Stackt<int>& target, Stackt<int>& aux, int& moveCount, const string& sourceLabel, const string& targetLabel) {
+    if (N == 1) {
+        int disk = source.pop();
         target.push(disk);
-        std::cout << "Move disk " << disk << " from Source to Target directly" << std::endl;
+        cout << "Move disk " << disk << " from " << sourceLabel << " to " << targetLabel << endl;
+        moveCount++;
     } else {
-        towersOfHanoi(n - 1, source, aux, target);
+        TowersOfHanoi(N - 1, source, aux, target, moveCount, sourceLabel, targetLabel);
 
-        int disk = source.top();
-        source.pop();
+        int disk = source.pop();
         target.push(disk);
-        std::cout << "Move disk " << disk << " from Source to Target directly" << std::endl;
+        cout << "Move disk " << disk << " from " << sourceLabel << " to " << targetLabel << endl;
+        moveCount++;
 
-        towersOfHanoi(n - 1, aux, target, source);
+        TowersOfHanoi(N - 1, aux, target, source, moveCount, sourceLabel, targetLabel);
     }
 }
 
 int main() {
-    int numDisks;
-    std::cout << "Enter the number of disks: ";
-    std::cin >> numDisks;
+    int N;
+    cout << "Enter the number of disks: ";
+    cin >> N;
 
-    Stackt<int> pegA(numDisks);
-    Stackt<int> pegB(numDisks);
-    Stackt<int> pegC(numDisks);
+    Stackt<int> pegA(N);
+    Stackt<int> pegB(N);
+    Stackt<int> pegC(N);
 
-    // Initialize peg A with disks in descending order
-    for (int i = numDisks; i >= 1; --i) {
+    int moveCount = 0;
+
+    cout << "-----------------------------------" << endl;
+    cout << "Initial state:" << endl;
+    cout << "Peg A: ";
+    for (int i = N; i >= 1; i--) {
         pegA.push(i);
+        cout << i << " ";
     }
+    cout << endl;
 
-    std::cout << "Initial State:" << std::endl;
-    // Display the initial state of the pegs
-    std::cout << "Peg A: ";
-    for (int i = 0; i < numDisks; ++i) {
-        std::cout << pegA.top() << " ";
-        pegA.pop();
-    }
-    std::cout << std::endl;
+    cout << "Peg B: ";
+    cout << endl;
 
-    std::cout << "Peg B: " << std::endl;
-    std::cout << "Peg C: " << std::endl;
+    cout << "Peg C: ";
+    cout << endl;
 
-    towersOfHanoi(numDisks, pegA, pegC, pegB);
+    cout << "-----------------------------------" << endl;
 
-    std::cout << "Final State:" << std::endl;
-    // Display the final state of the pegs
-    std::cout << "Peg A: ";
+    TowersOfHanoi(N, pegA, pegC, pegB, moveCount, "Peg A", "Peg C");
+
+    cout << "-----------------------------------" << endl;
+    cout << "Final state:" << endl;
+    cout << "Peg A: ";
     while (!pegA.isEmpty()) {
-        std::cout << pegA.top() << " ";
-        pegA.pop();
+        cout << pegA.pop() << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
 
-    std::cout << "Peg B: ";
+    cout << "Peg B: ";
     while (!pegB.isEmpty()) {
-        std::cout << pegB.top() << " ";
-        pegB.pop();
+        cout << pegB.pop() << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
 
-    std::cout << "Peg C: ";
+    cout << "Peg C: ";
     while (!pegC.isEmpty()) {
-        std::cout << pegC.top() << " ";
-        pegC.pop();
+        cout << pegC.pop() << " ";
     }
-    std::cout << std::endl;
+    cout << endl;
+
+    cout << "Total moves needed: " << moveCount << endl;
 
     return 0;
 }
