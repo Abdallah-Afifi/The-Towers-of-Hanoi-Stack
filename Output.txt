@@ -1,16 +1,21 @@
+
 Enter the number of disks: 3
-Initial State:
+-----------------------------------
+Initial state:
 Peg A: 3 2 1 
 Peg B: 
 Peg C: 
-Move disk 1 from Source to Target directly
-Move disk 2 from Source to Aux directly
-Move disk 1 from Target to Aux directly
-Move disk 3 from Source to Target directly
-Move disk 1 from Aux to Source directly
-Move disk 2 from Aux to Target directly
-Move disk 1 from Source to Target directly
-Final State:
+-----------------------------------
+Move disk 1 from Peg A to Peg C
+Move disk 2 from Peg A to Peg C
+Move disk 1 from Peg A to Peg C
+Move disk 3 from Peg A to Peg C
+Move disk 1 from Peg A to Peg C
+Move disk 2 from Peg A to Peg C
+Move disk 1 from Peg A to Peg C
+-----------------------------------
+Final state:
 Peg A: 
 Peg B: 
-Peg C: 3 2 1 
+Peg C: 1 2 3 
+Total moves needed: 7
