@@ -1,21 +1,65 @@
+THE TOWERS OF HANOI GAME 
+--------------------------------------
 
 Enter the number of disks: 3
+
+
 -----------------------------------
+
 Initial state:
 Peg A: 3 2 1 
 Peg B: 
 Peg C: 
 -----------------------------------
-Move disk 1 from Peg A to Peg C
+Move disk 1 from Peg A to Peg B
 Move disk 2 from Peg A to Peg C
-Move disk 1 from Peg A to Peg C
-Move disk 3 from Peg A to Peg C
-Move disk 1 from Peg A to Peg C
-Move disk 2 from Peg A to Peg C
-Move disk 1 from Peg A to Peg C
+Move disk 1 from Peg B to Peg C
+Move disk 3 from Peg A to Peg B
+Move disk 1 from Peg C to Peg A
+Move disk 2 from Peg C to Peg B
+Move disk 1 from Peg A to Peg B
 -----------------------------------
 Final state:
 Peg A: 
 Peg B: 
 Peg C: 1 2 3 
 Total moves needed: 7
+Another round?  (Y/N)
+y
+THE TOWERS OF HANOI GAME 
+--------------------------------------
+
+Enter the number of disks: 4
+
+
+-----------------------------------
+
+Initial state:
+Peg A: 4 3 2 1 
+Peg B: 
+Peg C: 
+-----------------------------------
+Move disk 1 from Peg A to Peg C
+Move disk 2 from Peg A to Peg B
+Move disk 1 from Peg C to Peg B
+Move disk 3 from Peg A to Peg C
+Move disk 1 from Peg B to Peg A
+Move disk 2 from Peg B to Peg C
+Move disk 1 from Peg A to Peg C
+Move disk 4 from Peg A to Peg B
+Move disk 1 from Peg C to Peg B
+Move disk 2 from Peg C to Peg A
+Move disk 1 from Peg B to Peg A
+Move disk 3 from Peg C to Peg B
+Move disk 1 from Peg A to Peg C
+Move disk 2 from Peg A to Peg B
+Move disk 1 from Peg C to Peg B
+-----------------------------------
+Final state:
+Peg A: 
+Peg B: 
+Peg C: 1 2 3 4 
+Total moves needed: 15
+Another round?  (Y/N)
+n
+Thank you for playing the game
