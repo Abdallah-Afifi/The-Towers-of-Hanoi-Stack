@@ -4,26 +4,29 @@
 using namespace std;
 
 // Function to implement the Towers of Hanoi
-void TowersOfHanoi(int N, Stackt<int>& source, Stackt<int>& target, Stackt<int>& aux, int& moveCount, const string& sourceLabel, const string& targetLabel) {
+void TowersOfHanoi(int N, Stackt<int>& source, Stackt<int>& target, Stackt<int>& aux, int& moveCount, const string& sourceLabel, const string& targetLabel, const string& auxLabel) {
     if (N == 1) {
         int disk = source.pop();
         target.push(disk);
-        cout << "Move disk " << disk << " from " << sourceLabel << " to " << targetLabel << endl;
+        cout << "Move disk 1 from " << sourceLabel << " to " << targetLabel << endl;
         moveCount++;
-    } else {
-        TowersOfHanoi(N - 1, source, aux, target, moveCount, sourceLabel, targetLabel);
+    }
+    else {
+        TowersOfHanoi(N - 1, source, aux, target, moveCount, sourceLabel, auxLabel, targetLabel);
 
         int disk = source.pop();
         target.push(disk);
-        cout << "Move disk " << disk << " from " << sourceLabel << " to " << targetLabel << endl;
+        cout << "Move disk " << N << " from " << sourceLabel << " to " << targetLabel << endl;
         moveCount++;
 
-        TowersOfHanoi(N - 1, aux, target, source, moveCount, sourceLabel, targetLabel);
+        TowersOfHanoi(N - 1, aux, target, source, moveCount, auxLabel, targetLabel, sourceLabel);
     }
 }
 
 int main() {
     int N;
+    cout << "THE TOWERS OF HANOI GAME \n";
+    cout << "--------------------------------------\n\n";
     cout << "Enter the number of disks: ";
     cin >> N;
 
@@ -32,47 +35,57 @@ int main() {
     Stackt<int> pegC(N);
 
     int moveCount = 0;
+    char ch;
 
-    cout << "-----------------------------------" << endl;
+    cout << "\n\n-----------------------------------\n\n";
     cout << "Initial state:" << endl;
     cout << "Peg A: ";
     for (int i = N; i >= 1; i--) {
         pegA.push(i);
         cout << i << " ";
     }
-    cout << endl;
+    cout << "\n";
 
     cout << "Peg B: ";
-    cout << endl;
+    cout << "\n";
 
     cout << "Peg C: ";
-    cout << endl;
+    cout << "\n";
 
-    cout << "-----------------------------------" << endl;
+    cout << "-----------------------------------\n";
 
-    TowersOfHanoi(N, pegA, pegC, pegB, moveCount, "Peg A", "Peg C");
+    TowersOfHanoi(N, pegA, pegC, pegB, moveCount, "Peg A", "Peg B", "Peg C");
 
-    cout << "-----------------------------------" << endl;
-    cout << "Final state:" << endl;
+    cout << "-----------------------------------\n";
+    cout << "Final state:\n";
     cout << "Peg A: ";
     while (!pegA.isEmpty()) {
         cout << pegA.pop() << " ";
     }
-    cout << endl;
+    cout << "\n";
 
     cout << "Peg B: ";
     while (!pegB.isEmpty()) {
         cout << pegB.pop() << " ";
     }
-    cout << endl;
+    cout << "\n";
 
     cout << "Peg C: ";
     while (!pegC.isEmpty()) {
         cout << pegC.pop() << " ";
     }
-    cout << endl;
+    cout << "\n";
 
-    cout << "Total moves needed: " << moveCount << endl;
-
+    cout << "Total moves needed: " << moveCount << "\n";
+    
+    cout << "Another round?  (Y/N)" << endl; 
+    cin >> ch; 
+    if (ch == 'Y' || ch == 'y') {
+        main(); 
+    }
+    else { 
+        cout << "Thank you for playing the game" << endl; 
+        exit(0);
+    }
     return 0;
 }
