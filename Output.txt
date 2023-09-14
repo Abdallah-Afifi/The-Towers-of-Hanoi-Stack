@@ -26,6 +26,7 @@ Peg C: 1 2 3
 Total moves needed: 7
 Another round?  (Y/N)
 y
+
 THE TOWERS OF HANOI GAME 
 --------------------------------------
 
@@ -62,4 +63,5 @@ Peg C: 1 2 3 4
 Total moves needed: 15
 Another round?  (Y/N)
 n
+
 Thank you for playing the game
