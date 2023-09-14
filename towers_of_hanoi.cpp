@@ -80,6 +80,7 @@ int main() {
     
     cout << "Another round?  (Y/N)" << endl; 
     cin >> ch; 
+    cout << endl;
     if (ch == 'Y' || ch == 'y') {
         main(); 
     }
